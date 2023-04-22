@@ -3,31 +3,32 @@ import { useEffect, useState } from "react";
 
 
 function Login () {
-        const [userName, setUserName] = useState("")
+        const [login, setLogin] = useState("")  
         const [password, setPassword] = useState("")
         const [message, setMessage] = useState("")
         const [errorMessage, setErrorMessage] = useState("")
         
         const postData = async () => {
             try {
-                const url = "http://cepbep.ddns.net:1500/api/users/login"
-                if (!password || !userName) throw "fields empty"
+                const url = "http://cepbep.ddns.net:2500/api/hotelDB/users/login"
+                if (!password || !login) throw "Все поля должны быть заполнены"
                
                 const data = {
-                    userName: userName,
+                    login: login,
                     password: password
                 }
             const response = await axios.post(url, data, {
                 'Content-Type': 'application/json'
             })
-            console.log(response.data)
+            console.log(response.data[0])
             if (response.status == "200"){
                 setErrorMessage("")
-                setMessage("Login is succsessful")    
-                localStorage.setItem("userId", response.data._id)
+                setMessage("Вход произведен")    
+                localStorage.setItem("userid", response.data[0]._id)
+                localStorage.setItem("login", response.data[0].login)
             }
             else {
-                setErrorMessage("Invalid login or password") 
+                setErrorMessage("Неправильный логин или пароль") 
             }
         }
     catch (error){
@@ -38,12 +39,12 @@ function Login () {
     
     return (
             <div className="reg-form"> 
-                <div className="reg-title">Log in</div>
-                <input className="reg-input" value={userName} placeholder="name" onChange={(event) => {setUserName (event.target.value)}}/>
-                <input  className="reg-input" value={password}  placeholder="password" type="password" onChange={(event) => {setPassword (event.target.value)}}/>
+                <div className="reg-title">Войти</div>
+                <input className="reg-input" value={login} placeholder="логин" onChange={(event) => {setLogin (event.target.value)}}/>
+                <input  className="reg-input" value={password}  placeholder="пароль" type="password" onChange={(event) => {setPassword (event.target.value)}}/>
                 <div className="er-message">{errorMessage}</div>
                 <div className="message">{message}</div>
-                <div onClick={postData} className="reg-button">Ok</div> 
+                <div onClick={postData} className="reg-button">OK</div> 
             </div>
     )
     

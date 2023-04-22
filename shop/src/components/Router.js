@@ -8,6 +8,7 @@ import Registration from "./Registration";
 import NotFoundPage from "./NotFoundPage";
 import Cart from "./Cart";
 import ProductProfile from "./ProductProfile";
+import Search from "./Search";
 
 
 class Router extends React.Component{
@@ -21,6 +22,7 @@ class Router extends React.Component{
             <Route path="catalog" element={<Catalog />}/>
             <Route path="registration" element={<Registration />}/>
             <Route path="login" element={<Login />}/> 
+            <Route path="search" element={<Search />}/> 
             <Route path="product/:productid" element={<ProductProfile />}/>        
             <Route path="cart" element={<Cart />}/>    
             <Route path="*" element={<NotFoundPage/>}/> 
