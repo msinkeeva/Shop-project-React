@@ -26,9 +26,9 @@ function ProductProfile () {
             <div className="product-name">{product.name}</div>
             <div className="product-info-container">
                 <div className="product-photo-container">
-                <img className="product-photo" src={product.photosURL}/>
+        
               
-                <img className="product-photo" src={product.photosURL[0]}/>
+                {/* <img className="product-photo" src={product.photosURL[0]}/> */}
                 </div>
                 <div className="product-info-items">
                     <div className="product-item">Описание: {product.description}</div>

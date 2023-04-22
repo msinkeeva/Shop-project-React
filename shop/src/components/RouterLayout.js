@@ -15,8 +15,9 @@ function RouterLayout () {
                 <div className="menu-leftblock">
                     <Link to="/"><img className="logo" src={logo}/></Link>      
                     <Link to="/catalog" className="link catalog-link">Каталог</Link>
-                    <Link to="/search" className="link search">Найти товар</Link>
                 </div>
+                <div className="menu-center-block"><Search/></div>
+                
                 <div className="menu-rightblock">
                     <Link to="/registration" className="link">Регистрация</Link>
                     <Link to="/login" className="link">Войти</Link>    
