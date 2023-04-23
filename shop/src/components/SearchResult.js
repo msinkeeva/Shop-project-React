@@ -20,7 +20,7 @@ function SearchResult (props) {
         <div className="search"> 
           
           {/* <div className="product-card" >
-            <img className="product-photo" src={props.product.photosURL[0]}/>
+            {props.product.photosURL[0] ? <img className="product-photo" src={props.product.photosURL[0]}/> : <div></div>}
             <div className="product-name">{props.product.name}</div>
             <div className="product-item">Цена: {props.product.price}</div>
             <div className="product-button" onClick={() =>{dispatch(addToCart(props.product))}}>Добавить в корзину</div>           

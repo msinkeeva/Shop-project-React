@@ -21,9 +21,8 @@ function Home () {
             const url = "http://cepbep.ddns.net:2500/api/shopDB/products/getAllProducts"
             const response = await axios.get(url)
             setArrayOfProducts(response.data.payload)
-
-        console.log(response.data.payload)
-        console.log(arrayOfProducts[0])
+            console.log(response.data.payload)
+   
     }
     useEffect (() => {
         getAllProducts()
@@ -37,27 +36,28 @@ function Home () {
             <div>Хиты продаж</div>
             <div className="bestsellers-container">
              {/* <div className="product-card">
-                    <img className="product-photo" src={arrayOfProducts[0].photosURL[0]}/>
-                    <div className="product-name">{arrayOfProducts[0].name}</div>
-                    <div className="product-item">Цена: {arrayOfProducts[0].price}</div>
+                {arrayOfProducts[3].photosURL[0] ? <img className="product-photo" src={arrayOfProducts[3].photosURL[0]}/> : <div>Загрузка</div>}
+                    <div className="product-name">{arrayOfProducts[3].name}</div>
+                    <div className="product-item">Цена: {arrayOfProducts[3].price}</div>
                     <div className="product-button">Добавить в корзину</div>           
                  </div>
                  <div className="product-card">
-                    <img className="product-photo" src={arrayOfProducts[1].photosURL[0]}/>
+                {arrayOfProducts[1].photosURL[0] ? <img className="product-photo" src={arrayOfProducts[1].photosURL[0]}/> : <div>Загрузка</div>}
                     <div className="product-name">{arrayOfProducts[1].name}</div>
                     <div className="product-item">Цена: {arrayOfProducts[1].price}</div>
                     <div className="product-button">Добавить в корзину</div>           
                  </div>
                  <div className="product-card">
-                    <img className="product-photo" src={arrayOfProducts[2].photosURL[0]}/>
-                    <div className="product-name">{arrayOfProducts[2].name}</div>
-                    <div className="product-item">Цена: {arrayOfProducts[2].price}</div>
+                 {arrayOfProducts[6].photosURL[0] ? <img className="product-photo" src={arrayOfProducts[6].photosURL[0]}/> : <div>Загрузка</div>}
+                    <div className="product-name">{arrayOfProducts[6].name}</div>
+                    <div className="product-item">Цена: {arrayOfProducts[6].price}</div>
                     <div className="product-button">Добавить в корзину</div>           
                  </div>    */}
+        </div>
             </div>
                 
             </div>
-        </div>  
+
 
         
     )

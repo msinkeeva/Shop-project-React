@@ -4,14 +4,14 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux"
 import { increment, decrement, addToCart, removeToCart } from "../store/demoSlice"
+import CarouselPhoto from "./CarouselPhoto"
 
 function ProductProfile () {
     const params = useParams()
     const [product, setProduct] = useState({})
-    
     const products = useSelector((state) => state.counter.cart)
     const dispatch = useDispatch()
-  
+    console.log(product)
     useEffect (() => {
         getProduct()
     },[])
@@ -25,16 +25,18 @@ function ProductProfile () {
         <div className="product-profile">
             <div className="product-name">{product.name}</div>
             <div className="product-info-container">
+
                 <div className="product-photo-container">
-        
-              
-                {/* <img className="product-photo" src={product.photosURL[0]}/> */}
+                {/* {product.photoURL ? <div>Загрузка</div> :  <CarouselPhoto product={product}/> */}
+             
+              {product.photosURL ? <img className="product-photo" src={product.photosURL[0]}/>:  <div>загрузка</div>}
                 </div>
                 <div className="product-info-items">
                     <div className="product-item">Описание: {product.description}</div>
                     <div className="product-item" >Цена: {product.price} тг</div>
-                    <div>Цвета:{product.colors &&
-                        <div>{product.colors.map((number) =><li style={{color:{number}}}>{number}</li>)}</div>}</div>
+                    <div>Цвет:{product.colors ? 
+                    <div>{product.colors.map((number) =><li>{number}</li>)}</div> : <div>загрузка</div>}</div>
+                      
                     <div className="product-item">Количество: {product.amount} шт</div>
                     <div className="product-item">Размеры: {product.sizes && 
                         <div>{product.sizes.map((number) =><li>{number}</li>)}</div>}</div>

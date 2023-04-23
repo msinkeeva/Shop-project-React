@@ -6,8 +6,8 @@ function CarouselBox() {
   return (
     <Carousel>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
+        <img 
+          className="d-block w-100 carousel-img"
           src={image}
           alt="First slide"
         />
@@ -18,7 +18,7 @@ function CarouselBox() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 carousel-img"
           src="https://img.freepik.com/premium-vector/banner-with-percentage-symbol-with-tag-on-it-and-place-for-text_348082-348.jpg?w=996"
           alt="Second slide"
         />
@@ -31,7 +31,7 @@ function CarouselBox() {
      
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-100 carousel-img"
           src="https://img.freepik.com/free-photo/young-happy-woman-shopper-showing-okay-sign-pleased-with-good-discounts-buying-staff-on-sale-holding_1258-121112.jpg?w=1380&t=st=1682066129~exp=1682066729~hmac=694f09f548236fd8403db4aa6aadbe4010b85fd0c360f55b0df5494f15f14a12"
           alt="Third slide"
         />

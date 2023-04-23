@@ -3,6 +3,7 @@ import RouterLayout from "../components/RouterLayout"
 
 const defaultState = {
     cart: [],
+    search: []
 }
 
  const demoSlice = createSlice ({
@@ -41,9 +42,19 @@ const defaultState = {
             const removeItem = state.cart.filter((item) => item._id !== action.payload);
             state.cart.splice(removeItem, 1);
           },
+          addToSearch: (state, action) => {
+            const itemInCart = state.search.find((item) => item._id === action.payload._id);
+            if (itemInCart) {
+              itemInCart.quantity++;
+              console.log(state.search)
+            } else {
+              state.search.push({ ...action.payload, quantity: 1 });
+              console.log(state.search)
+            }
+          },
     }}
  )
 
- export const {increment, decrement, addToCart, deleteFromCart} = demoSlice.actions
+ export const {increment, decrement, addToCart, deleteFromCart, addToSearch} = demoSlice.actions
 
  export default demoSlice
