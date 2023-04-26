@@ -9,28 +9,25 @@ import NotFoundPage from "./NotFoundPage";
 import Cart from "./Cart";
 import ProductProfile from "./ProductProfile";
 import Search from "./Search";
-import SearchResult from "./SearchResult";
-
 
 class Router extends React.Component{
     render () {
         return(
             <div>
-          <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<RouterLayout />}>
-            <Route index element={<Home />}/>
-            <Route path="catalog" element={<Catalog />}/>
-            <Route path="registration" element={<Registration />}/>
-            <Route path="login" element={<Login />}/> 
-            <Route path="search" element={<Search />}/> 
-            <Route path="product/:productid" element={<ProductProfile />}/>        
-            <Route path="cart" element={<Cart />}/>    
-            <Route path="search-result" element={<SearchResult />}/> 
-            <Route path="*" element={<NotFoundPage/>}/> 
-            </Route>
-          </Routes>
-          </BrowserRouter>
+              <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<RouterLayout />}>
+                    <Route index element={<Home />}/>
+                    <Route path="catalog" element={<Catalog />}/>
+                    <Route path="registration" element={<Registration />}/>
+                    <Route path="login" element={<Login />}/> 
+                    <Route path="search" element={<Search />}/> 
+                    <Route path="product/:productid" element={<ProductProfile />}/>        
+                    <Route path="cart" element={<Cart />}/>    
+                    <Route path="*" element={<NotFoundPage/>}/> 
+                  </Route>
+                </Routes>
+              </BrowserRouter>
         </div>
         )
     }

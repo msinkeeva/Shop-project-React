@@ -1,14 +1,16 @@
 import Product from "./Product"
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { Link } from "react-router-dom"
-import Search from "./Search"
+import ScrollToTop from "./ScrollToTop"
+import arrowLeft from "../assets/left-arrow.png"
+import arrowRight from "../assets/right-arrow.png"
 
 function Catalog() {
     const [arrayOfProducts, setArrayOfProducts] = useState([])
     const [request, setReguest] = useState("")
+    const [page, setPage] = useState(1)
     const getAllProducts = async () => {
-        const url = "http://cepbep.ddns.net:2500/api/shopDB/products/getAllProducts"
+        const url = `http://cepbep.ddns.net:2500/api/shopDB/products/getAllProducts/?page=${page}`
         const response = await axios.get(url)
         setArrayOfProducts(response.data.payload)
         console.log(response.data.payload)
@@ -27,22 +29,15 @@ function Catalog() {
     const sortPriceDown = () => {
         setArrayOfProducts([...arrayOfProducts].sort((a,b) => b.price - a.price))
     }
-    const sortRatingUp = () => {
-        setArrayOfProducts([...arrayOfProducts].sort((a,b) => a.rating - b.rating))
+    const nextPage = () => {
+        setPage(page+1)
     }
-    const sortRatingDown = () => {
-        setArrayOfProducts([...arrayOfProducts].sort((a,b) => b.rating - a.rating))
+    const prevPage = () => {
+        setPage(page-1)
     }
-    // const Render = () => {
-    //     console.log("render")
-    //     return (
-    //         // <div>{arrayOfProducts.map((product) => <Product product={product}/>)}</div>
-    //         <div></div>
-    //     )
-    // }
-    // useEffect (() => {
-    //     Render()
-    // }, [arrayOfProducts])
+    useEffect (() => {
+        getAllProducts()
+    }, [page])
     
     return (
         <div className="catalog"> 
@@ -50,6 +45,7 @@ function Catalog() {
                 <div className="catalog-item-all" onClick={getAllProducts}>Все товары</div>
                 <div className="catalog-item" onClick={()=>{getProductsByFilter("Платья")}}>Платья</div>
                 <div className="catalog-item" onClick={()=>{getProductsByFilter("Джинсы")}}>Джинсы</div>
+                <div className="catalog-item" onClick={()=>{getProductsByFilter("Толстовки и худи")}}>Толстовки и худи</div>
                 <div className="catalog-item" onClick={()=>{getProductsByFilter("Брюки")}}>Брюки</div>
                 <div className="catalog-item" onClick={()=>{getProductsByFilter("Юбки")}}>Юбки</div>
                 <div className="catalog-item" onClick={()=>{getProductsByFilter("Блузки и рубашки")}}>Блузки и рубашки</div>
@@ -57,23 +53,19 @@ function Catalog() {
             </div>
             <div className="product-container">
                 {arrayOfProducts == 0 ? <div></div> :  
-                    <div className="sort-container"> 
-                  
-                       
-                        
-                            <div className="sort-button-one" onClick={sortPriceUp}> Сортировать по возрастанию цены</div>
-                            <div className="sort-button-one" onClick={sortPriceDown}>Сортировать по убыванию цены</div>    
-                        </div>
-                                             
-                  
-                }
+                <div className="sort-container"> 
+                    <div className="sort-button-one" onClick={sortPriceUp}> Сортировать по возрастанию цены</div>
+                    <div className="sort-button-one" onClick={sortPriceDown}>Сортировать по убыванию цены</div>    
+                </div>}
                 <div className="product-container-box">
                      {arrayOfProducts ? arrayOfProducts.map((product) => <Product product={product}/>) : <div>Загрузка</div>}
                 </div>
-               
+               <div>
+                    {page == 2 && arrayOfProducts.length > 6 ? <div className="page-button" onClick={prevPage}><img src={arrowLeft}/></div> : <div></div>}
+                    {page == 1 && arrayOfProducts.length > 6 ?<div className="page-button"  onClick={nextPage}><img src={arrowRight}/></div> : <div></div>}
+               </div>
             </div>
+            <ScrollToTop/>
         </div>
-        
     )}
-    
-    export default Catalog
+export default Catalog

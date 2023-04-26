@@ -11,10 +11,6 @@ function Registration () {
     const [password, setPassword] = useState("")
     const [tryPassword, setTryPassword] = useState("")
 
-    useEffect(() => {
-      
-    },[])
-
     const postData = async () => {
         try {
             if (!login || !fullName || !email || !phoneNumber || !password) throw "заполните все поля"
@@ -28,31 +24,29 @@ function Registration () {
                 password: password,
                 tryPassword: tryPassword      
             }
-        const response = await axios.post(url, data, {
-            'Content-Type': 'application/json'
-        })
-        console.log(response)
-        setErrorMessage()
-        setMessage("Вы зарегистрированы!")
+            const response = await axios.post(url, data, {
+                'Content-Type': 'application/json'
+            })
+            setErrorMessage()
+            setMessage("Вы зарегистрированы!")
+            }
+            catch (error){
+                setErrorMessage(error)
+                console.log(error)
+            }
     }
-catch (error){
-    setErrorMessage(error)
-    console.log(error)
-}
-}
-
 return (
         <div className="reg-form"> 
             <div className="reg-title">Регистрация</div>
-            <input className="reg-input" value={login} placeholder="логин" onChange={(event) => {setLogin (event.target.value)}}/>
-            <input className="reg-input" value={fullName} placeholder="полное имя" onChange={(event) => {setFullName (event.target.value)}}/>
-            <input  className="reg-input" value={email}  placeholder="email" onChange={(event) => {setEmail (event.target.value)}}/>
-            <input  className="reg-input" value={phoneNumber}  placeholder="номер телефона" onChange={(event) => {setPhoneNumber (event.target.value)}}/>
-            <input  className="reg-input" value={password}  placeholder="пароль" type="password" onChange={(event) => {setPassword (event.target.value)}}/>
-            <input className="reg-input" value={tryPassword} placeholder="пароль еще раз" type="password" onChange={(event) => {setTryPassword (event.target.value)}}/>    
-            <div className="er-message">{errorMessage}</div>
-            <div className="message">{message}</div>
-            <div onClick={postData} className="reg-button">OK</div> 
+                <input className="reg-input" value={login} placeholder="логин" onChange={(event) => {setLogin (event.target.value)}}/>
+                <input className="reg-input" value={fullName} placeholder="полное имя" onChange={(event) => {setFullName (event.target.value)}}/>
+                <input  className="reg-input" value={email}  placeholder="email" onChange={(event) => {setEmail (event.target.value)}}/>
+                <input  className="reg-input" value={phoneNumber}  placeholder="номер телефона" onChange={(event) => {setPhoneNumber (event.target.value)}}/>
+                <input  className="reg-input" value={password}  placeholder="пароль" type="password" onChange={(event) => {setPassword (event.target.value)}}/>
+                <input className="reg-input" value={tryPassword} placeholder="пароль еще раз" type="password" onChange={(event) => {setTryPassword (event.target.value)}}/>    
+                <div className="er-message">{errorMessage}</div>
+                <div className="message">{message}</div>
+                <div onClick={postData} className="reg-button">OK</div> 
         </div>
 )
 }

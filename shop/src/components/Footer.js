@@ -31,12 +31,6 @@ function Footer (){
             <div><img className="social-icon" src={twitter}/></div>
         </div>
     </div>
-
-   
-
-    
 </div>
-
-    )
-}
+)}
 export default Footer

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+
 import {Link} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { increment, decrement, addToCart, removeToCart } from "../store/demoSlice"
+import { addToCart} from "../store/demoSlice"
 
 function Product (props){
     const products = useSelector((state) => state.counter.cart)
