@@ -5,11 +5,11 @@ import CarouselBox from "./CarouselBox"
 import logo from "../assets/logo2.png"
 import {Link} from "react-router-dom"
 import {addToCart} from "../store/demoSlice"
+import loading from "../assets/loading.gif"
 
 function Home () {
     const [arrayOfProducts, setArrayOfProducts] = useState([])
 
-    const count = useSelector((state) => state.counter.value)
     const dispatch = useDispatch()
 
     const getAllProducts = async () => {
@@ -46,28 +46,28 @@ function Home () {
                 <h2>Хиты продаж</h2>
                 <div className="bestsellers-container"> 
                     <div className="product-card">
-                        {arrayOfProducts[19] ? <Link className="product-link" to={`/product/${arrayOfProducts[19]._id}`}><img className="product-photo" src={arrayOfProducts[19].photosURL[0]}/></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[19] ? <Link className="product-link" to={`/product/${arrayOfProducts[19]._id}`}><div className="product-name">{arrayOfProducts[19].name}</div></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[19] ? <Link className="product-link" to={`/product/${arrayOfProducts[19]._id}`}><div className="product-item">Цена: {arrayOfProducts[19].price}</div></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[19] ? <div className="product-button" onClick={() =>{dispatch(addToCart(arrayOfProducts[19]))}}>Добавить в корзину</div> : <div>Загрузка</div>}
+                        {arrayOfProducts[19] ? <Link className="product-link" to={`/product/${arrayOfProducts[19]._id}`}><img className="product-photo" src={arrayOfProducts[19].photosURL[0]}/></Link> : <img src={loading}/>}
+                        {arrayOfProducts[19] ? <Link className="product-link" to={`/product/${arrayOfProducts[19]._id}`}><div className="product-name">{arrayOfProducts[19].name}</div></Link> : <img src={loading}/>}
+                        {arrayOfProducts[19] ? <Link className="product-link" to={`/product/${arrayOfProducts[19]._id}`}><div className="product-item">Цена: {arrayOfProducts[19].price}</div></Link> : <img src={loading}/>}
+                        {arrayOfProducts[19] ? <div className="product-button" onClick={() =>{dispatch(addToCart(arrayOfProducts[19]))}}>Добавить в корзину</div> : <img src={loading}/>}
                     </div>
                     <div className="product-card">
-                        {arrayOfProducts[15] ? <Link className="product-link" to={`/product/${arrayOfProducts[15]._id}`}><img className="product-photo" src={arrayOfProducts[15].photosURL[0]}/></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[15] ? <Link className="product-link" to={`/product/${arrayOfProducts[15]._id}`}><div className="product-name">{arrayOfProducts[15].name}</div></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[15] ? <Link className="product-link" to={`/product/${arrayOfProducts[15]._id}`}><div className="product-item">Цена: {arrayOfProducts[15].price}</div></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[15] ? <div className="product-button" onClick={() =>{dispatch(addToCart(arrayOfProducts[15]))}}>Добавить в корзину</div> : <div>Загрузка</div>}
+                        {arrayOfProducts[15] ? <Link className="product-link" to={`/product/${arrayOfProducts[15]._id}`}><img className="product-photo" src={arrayOfProducts[15].photosURL[0]}/></Link> : <img src={loading}/>}
+                        {arrayOfProducts[15] ? <Link className="product-link" to={`/product/${arrayOfProducts[15]._id}`}><div className="product-name">{arrayOfProducts[15].name}</div></Link> : <img src={loading}/>}
+                        {arrayOfProducts[15] ? <Link className="product-link" to={`/product/${arrayOfProducts[15]._id}`}><div className="product-item">Цена: {arrayOfProducts[15].price}</div></Link> : <img src={loading}/>}
+                        {arrayOfProducts[15] ? <div className="product-button" onClick={() =>{dispatch(addToCart(arrayOfProducts[15]))}}>Добавить в корзину</div> : <img src={loading}/>}
                     </div>
                     <div className="product-card">
-                        {arrayOfProducts[3] ? <Link className="product-link" to={`/product/${arrayOfProducts[3]._id}`}><img className="product-photo" src={arrayOfProducts[3].photosURL[0]}/></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[3] ? <Link className="product-link" to={`/product/${arrayOfProducts[3]._id}`}><div className="product-name">{arrayOfProducts[3].name}</div></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[3] ? <Link className="product-link" to={`/product/${arrayOfProducts[3]._id}`}><div className="product-item">Цена: {arrayOfProducts[3].price}</div></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[3] ? <div className="product-button" onClick={() =>{dispatch(addToCart(arrayOfProducts[3]))}}>Добавить в корзину</div> : <div>Загрузка</div>}
+                        {arrayOfProducts[3] ? <Link className="product-link" to={`/product/${arrayOfProducts[3]._id}`}><img className="product-photo" src={arrayOfProducts[3].photosURL[0]}/></Link> : <img src={loading}/>}
+                        {arrayOfProducts[3] ? <Link className="product-link" to={`/product/${arrayOfProducts[3]._id}`}><div className="product-name">{arrayOfProducts[3].name}</div></Link> : <img src={loading}/>}
+                        {arrayOfProducts[3] ? <Link className="product-link" to={`/product/${arrayOfProducts[3]._id}`}><div className="product-item">Цена: {arrayOfProducts[3].price}</div></Link> : <img src={loading}/>}
+                        {arrayOfProducts[3] ? <div className="product-button" onClick={() =>{dispatch(addToCart(arrayOfProducts[3]))}}>Добавить в корзину</div> : <img src={loading}/>}
                     </div>
                     <div className="product-card">
-                        {arrayOfProducts[18] ? <Link className="product-link" to={`/product/${arrayOfProducts[18]._id}`}><img className="product-photo" src={arrayOfProducts[18].photosURL[0]}/></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[18] ?  <Link className="product-link" to={`/product/${arrayOfProducts[18]._id}`}><div className="product-name">{arrayOfProducts[18].name}</div></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[18] ?  <Link className="product-link" to={`/product/${arrayOfProducts[18]._id}`}><div className="product-item">Цена: {arrayOfProducts[18].price}</div></Link> : <div>Загрузка</div>}
-                        {arrayOfProducts[18] ?  <div className="product-button" onClick={() =>{dispatch(addToCart(arrayOfProducts[18]))}}>Добавить в корзину</div> : <div>Загрузка</div>}
+                        {arrayOfProducts[18] ? <Link className="product-link" to={`/product/${arrayOfProducts[18]._id}`}><img className="product-photo" src={arrayOfProducts[18].photosURL[0]}/></Link> : <img src={loading}/>}
+                        {arrayOfProducts[18] ?  <Link className="product-link" to={`/product/${arrayOfProducts[18]._id}`}><div className="product-name">{arrayOfProducts[18].name}</div></Link> : <img src={loading}/>}
+                        {arrayOfProducts[18] ?  <Link className="product-link" to={`/product/${arrayOfProducts[18]._id}`}><div className="product-item">Цена: {arrayOfProducts[18].price}</div></Link> : <img src={loading}/>}
+                        {arrayOfProducts[18] ?  <div className="product-button" onClick={() =>{dispatch(addToCart(arrayOfProducts[18]))}}>Добавить в корзину</div> : <img src={loading}/>}
                     </div>     
                 </div>
             </div>        

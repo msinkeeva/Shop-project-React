@@ -8,8 +8,7 @@ import {useSelector } from "react-redux"
 function RouterLayout () {
     const login = localStorage.getItem("login")
     const products = useSelector((state) => state.counter.cart)
-    console.log(products)
-    console.log(products.length)
+
     return (
         <div >
             <div className="navbar">
@@ -26,7 +25,7 @@ function RouterLayout () {
                     <div className="cart-quantity">
                         {products.length == 0 ? <div></div> : <div>({products.length})</div>}  
                     </div>
-                    {/* <div className="login">{login}</div>    */}
+                    <div className="login">{login}</div>   
                   </div>
                 </div>
             </div>     

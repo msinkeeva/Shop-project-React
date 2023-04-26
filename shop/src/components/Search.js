@@ -2,6 +2,7 @@ import Product from "./Product"
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux"
+import loading from "../assets/loading.gif"
 
 function Search () {
     const [arrayOfProducts, setArrayOfProducts] = useState([])
@@ -21,7 +22,7 @@ function Search () {
              <div className="search-button"  onClick={getProductBySearch}>Найти</div>  
             </div>
             <div className="search-result-container">
-                {arrayOfProducts ? arrayOfProducts.map((product) => <Product product={product}/>) : <div>Загрузка</div>}   
+                {arrayOfProducts ? arrayOfProducts.map((product) => <Product product={product}/>) : <img src={loading}/>}   
             </div>
         </div>
     )

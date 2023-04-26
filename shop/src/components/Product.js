@@ -1,10 +1,8 @@
-
 import {Link} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { addToCart} from "../store/demoSlice"
 
 function Product (props){
-    const products = useSelector((state) => state.counter.cart)
     const dispatch = useDispatch()
     return (
         <div className="product-card" to={`/product/${props.product._id}`}>
@@ -14,5 +12,5 @@ function Product (props){
           <div className="product-button" onClick={() =>{dispatch(addToCart(props.product))}}>Добавить в корзину</div>           
         </div>
     )
-    }
+  }
 export default Product

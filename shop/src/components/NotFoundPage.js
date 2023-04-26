@@ -1,12 +1,10 @@
 import React from "react";
 
-class NotFoundPage extends React.Component{
-    render () {
-        return(
-            <div>
-                404 page not found
-            </div>
-        )
-    }
+function NotFoundPage () {
+    return(
+        <div>
+            404 page not found
+        </div>
+    )
 }
 export default NotFoundPage

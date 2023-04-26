@@ -65,16 +65,11 @@
 }
 }
 
-.carousel-img{
-    width: 100%;
-    height:500px;
-}
 .store-description{
-
     background-color: #ffffff;
-   margin: 30px;
-   padding: 30px;
-   border-radius: 30px;
+    margin: 30px;
+    padding: 30px;
+    border-radius: 30px;
     font-size: 16px;
     font-weight: bold;
     text-align: justify;
@@ -90,8 +85,7 @@
             align-items: center;
         }
         .store-description-logo{
-        
-width: 600px;
+            width: 600px;
         }
         .store-description-block-one-right ul{
             margin: 0;
@@ -99,8 +93,11 @@ width: 600px;
         }
         .store-description-block-one-right li{
             margin-left: 40px;
-        }
-    }
-    
+        }}}
 
+.carousel-container{
+    width: 100%;
+    .carousel-img{
+        height:500px;
+    }
 }

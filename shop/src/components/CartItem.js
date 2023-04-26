@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import { increment, decrement, deleteFromCart } from "../store/demoSlice"
 import {useState } from "react"
+import deleteIcon from "../assets/delete.png"
+import loading from "../assets/loading.gif"
+
 
 function CartItem (props) {
     const dispatch = useDispatch()   
@@ -10,7 +13,7 @@ function CartItem (props) {
 return (
     <div>
         <div className="cart-item-container">
-            {props.product.photosURL ? <img className="cart-item-photo" src={props.product.photosURL[0]}/>:  <div>загрузка</div>} 
+            {props.product.photosURL ? <img className="cart-item-photo" src={props.product.photosURL[0]}/> : <img src={loading}/>} 
             <div className="cart-item-name">название<div className="cart-item-value">{props.product.name}</div></div>
             <div className="cart-item-quantity">количество
                 <div className="quantity-container ">
@@ -21,7 +24,7 @@ return (
             </div>
             <div className="cart-item-price">цена<div className="cart-item-value">{props.product.price}</div></div>
             <div className="cart-item-price-sum">стоимость: <div className="cart-item-value">{props.product.quantity*props.product.price}</div></div>
-            <div className="cart-item-button" onClick={ () => {dispatch(deleteFromCart(props.product))}}>удалить из корзины</div>
+            <div onClick={ () => {dispatch(deleteFromCart(props.product))}}><img className="cart-item-button" src={deleteIcon}/></div>
         </div> 
     </div>
 )

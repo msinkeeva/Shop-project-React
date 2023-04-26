@@ -6,9 +6,13 @@ import close from "../assets/close.png"
 
 function Cart() {
     const products = useSelector((state) => state.counter.cart)
-    const [isActive, setIsActive] = useState(false);
-    const handleClick = event => {
-        setIsActive(current => !current);
+    const [isActive, setIsActive] = useState(false)
+    const [address, setAddress] = useState("")
+    const [message, setMessage] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
+
+    const showOrderForm = event => {
+        setIsActive(active => !active);
     }
     let totalQuantity = 0
     let totalPrice = 0
@@ -19,44 +23,54 @@ function Cart() {
         })
         return {totalPrice, totalQuantity}
     }
+    const order = () => {
+        try {
+        if (!address) throw "введите адрес"
+            setErrorMessage()
+            setMessage("Заказ оформлен!")}
+        catch (error){
+            setErrorMessage(error)
+            console.log(error)
+        }
+    }
     return (
         <div className="cart-container">
-            {products.length == 0 ? <div className="empty-cart">Корзина пустая</div> : products.map((product) => <CartItem product={product}/>)}
+            {products.length == 0 ? <div className="empty-cart">Корзина пустая</div> : products.map((product) => <CartItem key={product.id} product={product}/>)}
             {products.length == 0 ? <div></div> :  
                 <div className="cart-footer">
                     <div className="total">Общая сумма за {getTotal().totalQuantity} товар(а) : <strong>{getTotal().totalPrice}тг</strong></div>
-                    <div className="cart-button" onClick={handleClick}>Оформить заказ</div>
+                    <div className="cart-button" onClick={showOrderForm}>Оформить заказ</div>
                 </div>}
             <div>
             <div className={isActive ? 'order' : 'hidden'}>
                 <div className="order-form">
-                    <div className="close" onClick={handleClick}><img src={close}/></div>
+                    <div className="close" onClick={showOrderForm}><img src={close}/></div>
                     <div className="order-form-title">Оформление заказа</div>
                     <div className="order-form-container">
                         <div className="delivery-info">
                             <div className="delivery-info-title">Доставка и оплата</div>
                             <div className="delivery-info-name">Адрес доставки</div>
-                                <input className="order-input"/> 
+                                <input className="order-input" value={address} placeholder="введите адрес" onChange={(event) => {setAddress (event.target.value)}}/>
                             <div className="delivery-info-name">Способ доставки</div> 
                                 <div className="delivery-info-list">
-                                    <div><input type="radio" className="list-input" id="male" name="gender" value="male"/><label className="label" for="male">Курьерская доставка</label></div>
-                                    <div><input type="radio" className="list-input" id="female" name="gender" value="female"/><label for="female">Доставка в пункт выдачи заказов</label></div>
-                                    <div><input type="radio" className="list-input" id="other" name="gender" value="other"/><label for="other">Самовывоз</label>  </div>
+                                    <div><input type="radio" className="list-input" id="first delivery method" value="one" name="delivery method"/><label for="one">Курьерская доставка</label></div>
+                                    <div><input type="radio" className="list-input" id="second delivery method" value="two" name="delivery method"/><label for="two">Доставка в пункт выдачи заказов</label></div>
                                 </div>
                             <div className="delivery-info-name">Способ оплаты</div>
                             <div className="delivery-info-list">
-                                <div><input type="radio" className="list-input" id="male" name="gender" value="male"/><label for="male">Оплата картой</label></div>
-                                <div><input type="radio" className="list-input" id="female" name="gender" value="female"/><label for="female">Оплата наличными курьеру</label></div>
+                                <div><input type="radio" className="list-input" id="first payment method" value="one" name="payment method"/><label for="one">Оплата картой</label></div>
+                                <div><input type="radio" className="list-input" id="second payment method" value="two" name="payment method"/><label for="two">Оплата наличными курьеру</label></div>
                             </div >
                         </div>
                         <div className="order-info">
                             <div className="delivery-info-title">Ваш заказ</div>
-                            {products.length == 0 ? <div></div> : products.map((product) => <Order product={product}/>)}
+                            {products.length == 0 ? <div></div> : products.map((product) => <Order key={product.id} product={product}/>)}
                             <div className="total">Сумма к оплате {totalPrice}тг</div>
                         </div>  
                       </div>
-                      <div className="order-button" onClick={(handleClick)}>Оформить заказ</div>
-
+                    <div className="cart-er-message">{errorMessage}</div>
+                    <div className="cart-message">{message}</div>
+                    <div className="order-button" onClick={(order)}>Оформить заказ</div>
                   </div>
               </div>
           </div>

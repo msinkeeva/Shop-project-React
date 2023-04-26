@@ -10,33 +10,33 @@ const defaultState = {
     initialState: defaultState,
     reducers: {
         addToCart: (state, action) => {
-            const itemInCart = state.cart.find((item) => item._id === action.payload._id);
+            const itemInCart = state.cart.find((item) => item._id === action.payload._id)
             if (itemInCart) {
-              itemInCart.quantity++;
+              itemInCart.quantity++
             } else {
-              state.cart.push({ ...action.payload, quantity: 1 });
+              state.cart.push({ ...action.payload, quantity: 1 })
             }
           },
-          increment: (state, action) => {
-              const item = state.cart.find((item) => item._id === action.payload);
-              if (item.quantity === item.amount) {
-                item.quantity = item.quantity
-              } else {
-                item.quantity++;
-              }
+        increment: (state, action) => {
+            const item = state.cart.find((item) => item._id === action.payload)
+            if (item.quantity === item.amount) {
+              item.quantity = item.quantity
+            } else {
+              item.quantity++
+            }
           }, 
-          decrement: (state, action) => {
-              const item = state.cart.find((item) => item._id === action.payload);
-              if (item.quantity === 1) {
+        decrement: (state, action) => {
+            const item = state.cart.find((item) => item._id === action.payload)
+            if (item.quantity === 1) {
                 item.quantity = 1
-              } else {
-                item.quantity--;
-              }
+            } else {
+                item.quantity--
+            }
           },
-          deleteFromCart: (state, action) => {
-            const removeItem = state.cart.filter((item) => item._id !== action.payload);
-            state.cart.splice(removeItem, 1);
-          }
+        deleteFromCart: (state, action) => {
+          const removeItem = state.cart.filter((item) => item._id !== action.payload)
+          state.cart.splice(removeItem, 1)
+        }
     }}
  )
 

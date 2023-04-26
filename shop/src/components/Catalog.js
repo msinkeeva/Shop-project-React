@@ -4,6 +4,7 @@ import axios from "axios"
 import ScrollToTop from "./ScrollToTop"
 import arrowLeft from "../assets/left-arrow.png"
 import arrowRight from "../assets/right-arrow.png"
+import loading from "../assets/loading.gif"
 
 function Catalog() {
     const [arrayOfProducts, setArrayOfProducts] = useState([])
@@ -58,7 +59,7 @@ function Catalog() {
                     <div className="sort-button-one" onClick={sortPriceDown}>Сортировать по убыванию цены</div>    
                 </div>}
                 <div className="product-container-box">
-                     {arrayOfProducts ? arrayOfProducts.map((product) => <Product product={product}/>) : <div>Загрузка</div>}
+                     {arrayOfProducts ? arrayOfProducts.map((product) => <Product key={product.id} product={product}/>) : <img src={loading}/>}
                 </div>
                <div>
                     {page == 2 && arrayOfProducts.length > 6 ? <div className="page-button" onClick={prevPage}><img src={arrowLeft}/></div> : <div></div>}
