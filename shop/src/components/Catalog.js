@@ -14,7 +14,6 @@ function Catalog() {
         const url = `http://cepbep.ddns.net:2500/api/shopDB/products/getAllProducts/?page=${page}`
         const response = await axios.get(url)
         setArrayOfProducts(response.data.payload)
-        console.log(response.data.payload)
 }
     const  getProductsByFilter= async (category) => {
         const url = "http://cepbep.ddns.net:2500/api/shopDB/products/postProductFilter"
@@ -59,7 +58,7 @@ function Catalog() {
                     <div className="sort-button-one" onClick={sortPriceDown}>Сортировать по убыванию цены</div>    
                 </div>}
                 <div className="product-container-box">
-                     {arrayOfProducts ? arrayOfProducts.map((product) => <Product key={product.id} product={product}/>) : <img src={loading}/>}
+                     {arrayOfProducts ? arrayOfProducts.map((product) => <Product key={product._id} product={product}/>) : <img src={loading}/>}
                 </div>
                <div>
                     {page == 2 && arrayOfProducts.length > 6 ? <div className="page-button" onClick={prevPage}><img src={arrowLeft}/></div> : <div></div>}

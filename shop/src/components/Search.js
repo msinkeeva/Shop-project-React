@@ -22,7 +22,7 @@ function Search () {
              <div className="search-button"  onClick={getProductBySearch}>Найти</div>  
             </div>
             <div className="search-result-container">
-                {arrayOfProducts ? arrayOfProducts.map((product) => <Product product={product}/>) : <img src={loading}/>}   
+                {arrayOfProducts ? arrayOfProducts.map((product) => <Product key={product._id} product={product}/>) : <img src={loading}/>}   
             </div>
         </div>
     )

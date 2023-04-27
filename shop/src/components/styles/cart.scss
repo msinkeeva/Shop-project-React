@@ -35,15 +35,9 @@
         margin-top: 5px;
     }
     .cart-item-button{
-   
-        
         padding: 5px;
-    
         margin-right: 10px;
         cursor: pointer;
-        &:hover{
-           width: 100px;
-        }
     }
     .cart-item-quantity{
         width: 120px;
@@ -84,7 +78,10 @@
         text-align: center;
     }
     .cart-button{
+        width: 200px;
         padding: 5px;
+        background-color: #b518cd;
+        color: #ffffff;
         text-align: center;
         border-radius: 10px;
         font-weight: bold;
@@ -127,6 +124,8 @@
         }  
         .order-form-title{
             font-size: 20px;
+            font-weight: bold;
+            color: #b518cd;
         }
         .close{
             position: relative;
@@ -153,12 +152,10 @@
                 &:focus {
                     outline: 2px solid #da82f5;
                 }
-                &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                    color: rgb(50, 156, 202);
-                }
             }
             .delivery-info-name{
                 margin-top: 10px;
+                font-weight: bold;
             }
             .delivery-info-list{
                 display: flex;
@@ -209,4 +206,7 @@
 .cart-message{
     color:#29bd3d;
     font-weight: bold;
+}
+label{
+    margin-left: 10px;
 }

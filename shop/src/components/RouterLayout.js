@@ -4,7 +4,8 @@ import cart from "../assets/shopping-cart.png"
 import logo from "../assets/logo2.png"
 import Footer from "./Footer";
 import {useSelector } from "react-redux"
-
+import searchIcon from "../assets/magnifier.png"
+ 
 function RouterLayout () {
     const login = localStorage.getItem("login")
     const products = useSelector((state) => state.counter.cart)
@@ -15,7 +16,7 @@ function RouterLayout () {
                 <div className="navbar-leftblock">
                     <Link to="/"><img className="logo" src={logo}/></Link>      
                     <Link to="/catalog" className="link catalog-link">Каталог</Link>
-                    <Link to="/search" className="link search-link">Поиск</Link>
+                    <Link to="/search" className="link search-link"><div>Поиск</div><img className="search-icon" src={searchIcon}/></Link>
                 </div>
                 <div className="navbar-rightblock">
                     <Link to="/registration" className="link">Регистрация</Link>
