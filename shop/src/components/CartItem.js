@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { increment, decrement, deleteFromCart } from "../store/demoSlice"
+import { increment, decrement, deleteFromCart } from "../store/cartSlice"
 import {useState } from "react"
 import deleteIcon from "../assets/delete.png"
 import loading from "../assets/loading.gif"
@@ -8,7 +8,7 @@ import loading from "../assets/loading.gif"
 function CartItem (props) {
     const dispatch = useDispatch()   
     const products = useSelector((state) => state.counter.cart) 
-    const  [cart, setCart] = useState(products[0]) 
+    const [cart, setCart] = useState(products[0]) 
  
 return (
     <div>

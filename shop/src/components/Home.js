@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import CarouselBox from "./CarouselBox"
 import logo from "../assets/logo2.png"
 import {Link} from "react-router-dom"
-import {addToCart} from "../store/demoSlice"
+import {addToCart} from "../store/cartSlice"
 import loading from "../assets/loading.gif"
 
 function Home () {

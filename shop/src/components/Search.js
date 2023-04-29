@@ -7,7 +7,6 @@ import loading from "../assets/loading.gif"
 function Search () {
     const [arrayOfProducts, setArrayOfProducts] = useState([])
     const [request, setReguest] = useState("")
-    const search = useSelector((state) => state.counter.search)
     const dispatch = useDispatch()
 
     const getProductBySearch = async () => {

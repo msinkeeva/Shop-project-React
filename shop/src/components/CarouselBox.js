@@ -13,7 +13,7 @@ function CarouselBox() {
         />
         <Carousel.Caption>
           <h3>Добро пожаловать на My Store</h3>
-          <div className='carousel-text'><p>Вас ждут ТЫСЯЧИ моделей модной брендовой мужской, женской и детской обуви и одежды разных размеров!</p></div>
+          <div className='carousel-text'><p>Вас ждут ТЫСЯЧИ моделей модной женской одежды разных размеров!</p></div>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>

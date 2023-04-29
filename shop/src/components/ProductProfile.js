@@ -2,14 +2,13 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux"
-import {addToCart} from "../store/demoSlice"
+import {addToCart} from "../store/cartSlice"
 import loading from "../assets/loading.gif"
 
 function ProductProfile () {
     const params = useParams()
     const [product, setProduct] = useState({})
     const dispatch = useDispatch()
-    console.log(product)
     
     useEffect (() => {
         getProduct()

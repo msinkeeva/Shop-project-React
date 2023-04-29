@@ -14,7 +14,7 @@ function Catalog() {
         const url = `http://cepbep.ddns.net:2500/api/shopDB/products/getAllProducts/?page=${page}`
         const response = await axios.get(url)
         setArrayOfProducts(response.data.payload)
-}
+    }
     const  getProductsByFilter= async (category) => {
         const url = "http://cepbep.ddns.net:2500/api/shopDB/products/postProductFilter"
         const data = {"filter": {"category": category}}

@@ -1,11 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit"
 
 const defaultState = {
-    cart: [],
-    search: []
+    cart: []
 }
 
- const demoSlice = createSlice ({
+ const cartSlice = createSlice ({
     name: "counter",
     initialState: defaultState,
     reducers: {
@@ -40,6 +39,6 @@ const defaultState = {
     }}
  )
 
- export const {increment, decrement, addToCart, deleteFromCart} = demoSlice.actions
+ export const {increment, decrement, addToCart, deleteFromCart} = cartSlice.actions
 
- export default demoSlice
+ export default cartSlice
