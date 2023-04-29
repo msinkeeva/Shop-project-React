@@ -68,3 +68,35 @@
         width: 35%;
     } 
 }
+
+@media (max-width: 400px){
+    .navbar{
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        .link{
+            text-decoration: none;
+            color: #ffffff;
+            height: min-content;
+            .cart{
+                width: 100%;
+            }}
+        .navbar-rightblock{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 400px;
+            align-items: center;
+            margin-left: 60px;
+        }
+        .navbar-leftblock{
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            width: 400px;
+            .logo{
+                padding: 5px 0 0 10px;
+                width: 50%;
+                height: min-content;
+}}}}

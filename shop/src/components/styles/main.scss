@@ -1,6 +1,9 @@
+@import "cart.scss", "catalog.scss", "homePage.scss", "navbar.scss", "product.scss", "registration.scss", "search.scss";
+
 body{
     margin: 0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
 .outlet{
     display: flex;
@@ -73,3 +76,49 @@ body{
     color:#29bd3d;
     font-weight: bold;
 }
+
+@media (max-width: 400px){
+    .outlet{
+        width: 600px;
+    }
+    .footer{
+        flex-direction: column;
+        align-items: center;
+        font-size: 14px;
+        width: 600px;
+        height: min-content;
+        .footer-logo{
+            margin-top: 10px;
+            width: 80%;
+        }
+        .footer-left-block{
+         padding: 0;
+         margin: 0;
+                }
+        .footer-center-block{
+            padding: 0;
+            margin: 0;
+            align-items: center;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .footer-right-block{
+            padding: 0;
+            margin: 0;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            .social-media{
+                width: 50%;
+                margin-top: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                align-items: start;
+                .social-icon{
+                    width: 50%;
+                    cursor: pointer;
+                    &:hover{
+                        opacity: 0.8;
+         }}
+}}}}

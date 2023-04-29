@@ -2,10 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-.carousel-container{
-    width: 100vw;
-    height:600px;
-}
+
 .bestsellers{
     display: flex;
     flex-direction: column;
@@ -103,7 +100,41 @@
 
 .carousel-container{
     width: 100%;
+    height:600px;
     .carousel-img{
         height:500px;
     }
+    .carousel-text{
+        font-size: 20px;
+       font-weight: bold;
+   }
+   h2{
+       color: #b154f8;
+   }
 }
+@media (max-width: 400px){
+    .home-page-container{
+        width: 400px;
+    .bestsellers{
+        flex-direction: column;
+        .bestsellers-container{
+            flex-direction: column;
+            .product-card{
+                width: 350px;
+            }}}}
+    .store-description{
+        width: 400px;
+        margin: 10px;
+        padding: 10px;
+        .store-description-block-one{
+            display: flex;
+            flex-direction: column;
+            .store-description-logo{
+                width: 90%;
+            }}}
+    .carousel-container{
+        width: 100%;
+        height:300px;
+        .carousel-img{
+            height:300px;
+        }}}

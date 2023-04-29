@@ -89,5 +89,30 @@
 h2{
     color: #b154f8;
 }
-      
+@media (max-width: 400px){
+    .catalog{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        .catalog-container{
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            margin: 0;
+        }
+        .product-container{
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .sort-container{
+                color: #ffffff;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-top: 20px;
+              }}}}
+    
+   
 

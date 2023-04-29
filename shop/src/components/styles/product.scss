@@ -111,3 +111,30 @@
         width: 120%
     }
 }
+@media (max-width: 400px){
+    .product-container-box{
+        .product-card{
+            width: 350px;
+        }}
+    .product-profile{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        .product-info-container{
+            display: flex;
+            justify-content: center; 
+            flex-direction: column;  
+            width: 600px;
+            align-items: center;
+        }
+        .product-info-items{
+            width: 50%;
+            margin: 0;
+        }
+        .product-photo-container{
+            width: 200px;
+        }
+    }
+}
