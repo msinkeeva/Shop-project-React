@@ -28,7 +28,7 @@ function ProductProfile () {
                 </div>
                 <div className="product-info-items">
                     <div className="product-item">Описание: {product.description}</div>
-                    <div className="product-item" >Цена: {product.price} тг</div>
+                    <div className="product-item">Цена: {product.price} тг</div>
                     <div>Цвет:
                         {product.colors ? <div>{product.colors.map((number) =><li>{number}</li>)}</div> : <img src={loading}/>}</div>
                     <div className="product-item">Количество: {product.amount} шт</div>

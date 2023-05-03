@@ -61,8 +61,8 @@ function Catalog() {
                      {arrayOfProducts ? arrayOfProducts.map((product) => <Product key={product._id} product={product}/>) : <img src={loading}/>}
                 </div>
                <div>
-                    {page == 2 && arrayOfProducts.length > 6 ? <div className="page-button" onClick={prevPage}><img src={arrowLeft}/></div> : <div></div>}
-                    {page == 1 && arrayOfProducts.length > 6 ?<div className="page-button"  onClick={nextPage}><img src={arrowRight}/></div> : <div></div>}
+                    {page == 2 && arrayOfProducts.length == 20 ? <div className="page-button" onClick={prevPage}><img src={arrowLeft}/></div> : <div></div>}
+                    {page == 1 && arrayOfProducts.length == 20 ?<div className="page-button"  onClick={nextPage}><img src={arrowRight}/></div> : <div></div>}
                </div>
             </div>
             <ScrollToTop/>
